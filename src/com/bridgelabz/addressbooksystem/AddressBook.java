@@ -54,4 +54,19 @@ public class AddressBook {
             }
         }
     }
+
+    public void deleteContact(){
+
+        System.out.println("Enter the first name to edit: ");
+        String fName = input.next();
+
+        for (int i=0; i<contactsList.size();i++){
+            Contacts contacts=(Contacts) contactsList.get(i);
+            if(fName.equals(contacts.getFirstName())){
+                System.out.println(contacts);
+                contactsList.remove(i);
+                System.out.println(contactsList.isEmpty());
+            }
+        }
+    }
 }
