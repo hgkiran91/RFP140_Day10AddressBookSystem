@@ -34,4 +34,24 @@ public class AddressBook {
         contactsList.add(contacts);
         System.out.println(contactsList);
     }
+
+    public void editContact() {
+
+        System.out.println("Enter the first name to edit: ");
+        String fName = input.next();
+
+        AddressBook addressBook = new AddressBook();
+
+        for (int i = 0; i < contactsList.size(); i++) {
+            Contacts contacts = (Contacts) contactsList.get(i);
+            if (fName.equals(contacts.getFirstName())) {
+                System.out.println(contacts);
+                addressBook.addPerson();
+
+                for (int j = 0; j < contactsList.size(); j++) {
+                    contactsList.set(j, contacts);
+                }
+            }
+        }
+    }
 }
