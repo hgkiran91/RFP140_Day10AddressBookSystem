@@ -1,5 +1,9 @@
 package com.bridgelabz.addressbooksystem;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class AddressBookMain {
 
     public static void main(String[] args) {
@@ -9,6 +13,7 @@ public class AddressBookMain {
         //addressBook.addPerson();
         //addressBook.editContact();
         //addressBook.deleteContact();
-        addressBook.addMultipleContact();
+        //addressBook.addMultipleContact();
+        addressBook.addMultipleAddressBook();
     }
 }

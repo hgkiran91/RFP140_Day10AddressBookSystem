@@ -1,6 +1,7 @@
 package com.bridgelabz.addressbooksystem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,6 +10,8 @@ public class AddressBook {
     static Scanner input = new Scanner(System.in);
 
     List<Contacts> contactsList = new ArrayList<>();
+
+    HashMap<Integer, AddressBook> addressBookNum = new HashMap<>();
 
     public void addPerson() {
         Contacts contacts = new Contacts();
@@ -117,6 +120,40 @@ public class AddressBook {
             }
             if (option==4)
                 break;
+        }
+    }
+
+    public void addMultipleAddressBook() {
+
+        while (true) {
+
+            System.out.println("Enter the \n1)to access address book\n2)0 to exit");
+            int option = input.nextInt();
+            switch (option) {
+                case 0:
+                    System.out.println("Exiting from addressbooks");
+                    System.exit(0);
+                    break;
+
+                case 1:
+                    System.out.println("Enter the addressbook number");
+                    int N = input.nextInt();
+                    System.out.printf("welcome to addressbook_%d\n", N);
+                    if (addressBookNum.containsKey(N)) {
+                        System.out.printf("addressbook_%d is already present you cannot add one more time\n", N);
+                        break;
+                    } else {
+                        AddressBook addr = new AddressBook();
+                        addr.addMultipleContact();
+                        addressBookNum.put(N, addr);
+                        break;
+                    }
+
+                default:
+                    System.out.println("select valid option");
+                    break;
+            }
+
         }
     }
 }
